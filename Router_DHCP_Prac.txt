@@ -1,0 +1,8 @@
+Open router
+
+
+ip dhcp pool <name>
+network ip_addr subnet
+default-router ip_addr
+dns-server ip_addr
+exit

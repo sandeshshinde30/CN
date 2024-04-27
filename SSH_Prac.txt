@@ -1,0 +1,63 @@
+take
+1 pc : 192.168.1.11
+1 Switch : 192.168.1.2
+1 Router : 192.168.1.1
+
+Go to switch
+1. en
+2. conf t
+3. int vlan1
+4. ip addr 192.168.1.2 255.255.255.0
+5. no shut
+
+
+Go to R1
+1. en
+2. conf t
+3. int g0/0
+4. ip addr 192.168.1.1 255.255.255.0
+5. no shut
+6. exit
+7. username cisco pass cicso
+8. ip domain-name cisco.com
+
+
+Go to switch
+1. exit
+2. username cisco pass cicso
+3. ip domain-name cisco.com
+4. crypto generate key rsa
+5. enter 1024
+
+Go to R1
+1. crypto generate key rsa
+2. enter 1024
+3. line vty 0 15
+4. login local 
+5. transport input ssh
+6. exec-timeout 5
+
+Go to switch
+1. line vty 0 15
+2. login local 
+3. transport input ssh
+4. exec-timeout 5
+
+Go to R1 
+1. ip ssh version 2
+
+
+Go to Switch 
+1. ip ssh version 2
+
+
+
+Go to PC1
+go to cmd
+ssh -l <username> 192.168.1.2
+
+
+
+
+
+

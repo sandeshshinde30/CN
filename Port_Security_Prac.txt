@@ -1,0 +1,36 @@
+Take 
+2 pc : 192.168.1.1 192.168.1.2
+1 Laptop : 192.168.1.3
+1 switch
+
+
+Go to switch
+1. en
+2. config t
+3. int range f0/1-2
+4. switchport port-security
+
+if you face error like interface is dynamic something do following commands:
+no switchport mode dynamic
+switchport mode access
+
+5. switchport port-security maximum 1
+6. switchport port-security mac-address sticky
+7. switchport port-security violation restrict 
+8. int range f0/3-24, g0/1-2
+9. shutdown
+10. ping pc 1 from pc 2
+11. show run | begin interface // see info
+12. show port-security // port info
+13. show port-security address 
+14. Attach laptop to fa0/3
+15. now enable fa0/3
+16. int fa0/3
+17. no shutdown
+18. ping pc 2 and pc 3
+19. shutdown fa0/3
+20. connect laptop to fa0/2
+21. now ping pc 1 // can not ping becase only pc2 is allowed to connect fa0/2
+22. end
+23. show port-security interface fa0/2 //  see the violations
+

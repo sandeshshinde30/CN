@@ -1,0 +1,49 @@
+take
+1 pc : 192.168.1.11
+1 Switch : 192.168.1.2
+1 Router : 192.168.1.1
+
+Go to switch
+1. en
+2. conf t
+3. int vlan1
+4. ip addr 192.168.1.2 255.255.255.0
+5. no shut
+
+
+Go to R1
+1. en
+2. conf t
+3. int g0/0
+4. ip addr 192.168.1.1 255.255.255.0
+5. no shut
+6. exit
+7. username cisco pass cicso
+
+
+
+Go to switch
+1. exit
+2. username cisco pass cicso
+3. do show run
+4. line vty 0 15
+5. login local 
+6. transport input telnet
+
+
+Go to R1 
+1. line vty 0 15
+2. login local 
+3. transport input telnet
+
+
+
+Go to PC1
+go to cmd
+telnet 192.168.1.2
+telnet 192.168.1.1
+
+
+
+
+
